@@ -1,0 +1,360 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register New User</title>
+</head>
+{%if msg%}
+    <script>
+        window.alert('{{msg}}');
+    </script>
+{% endif%}	
+<body>
+    <a href="/registeradmin">Register Another Admin</a> <br><br>
+    <a href="/registerbooking">Register Booking User</a> <br><br>
+    <a href="/registerdispatch">Register Dispatch User</a> <br><br>
+    <a href="/registermis">Register MIS User</a>
+</body>
+</html>-->
+
+{% load static %}
+
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style/prelogin.css">
+    <style>
+      
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
+}
+
+
+header{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px ,10%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #24242A;
+}
+
+.navbar{
+  background-color: #24242A;
+  border-radius: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.navbar li{
+  float:left;
+  list-style: none; 
+  margin: 13px 20px;
+}
+.navbar ul{
+  overflow: auto;
+}
+
+.navbar li a{
+  padding: 3px 3px;
+  text-decoration: none;
+  color: white;
+  
+  transition: all 0.3s ease 0s;
+}
+
+
+
+
+
+
+
+
+.navbar li a:hover{
+          color: #0096FF;
+      }
+
+
+
+
+.logo{
+  cursor: pointer;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  }
+
+
+  .login li{
+      
+      float:left;
+      list-style: none; 
+      margin: 25px 20px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .login ul{
+      overflow: auto;
+  }
+  
+  .login li a{
+      padding: 3px 3px;
+      text-decoration: none;
+      color: white;
+      
+      transition: all 0.3s ease 0s;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  .login li a:hover{
+              color: #0096FF;
+              font-family: Verdana, Geneva, Tahoma, sans-serif
+          }
+  
+.line{
+
+  color:#0096FF ;
+}
+
+.fix{
+
+  
+      
+      
+      /* display: block; */
+    
+      
+      overflow: hidden;
+    
+}
+
+.text1{
+
+  position: absolute;
+  color: #AACCFF;
+  top: 150px;
+  left: 100px;
+  padding-right: 500px;
+  
+  
+  text-decoration: none;
+  border: palegoldenrod 2px solid;
+  border-radius: 20px;
+  
+
+}
+
+.text1 li{
+
+  text-decoration: none;
+
+  padding: 50px;
+}
+.text1 ul{
+
+text-decoration: none;
+
+}
+
+.img2 {
+
+  position: absolute;
+  top: 160px;
+  left: 665px;
+ 
+  
+}
+
+button {
+
+      position: absolute;
+      
+      
+      
+      border: none;
+      
+      padding: 16px 32px;
+      text-align: center;
+      text-decoration: none;
+      
+      font-size: 16px;
+      /* margin: 4px 2px; */
+      transition-duration: 0.4s;
+      cursor: pointer;
+    
+}
+
+.button1 {
+  top: 140px;
+  left: 300px;
+  background-color: #002D62; 
+  color: #AACCFF; 
+  border: 2px solid palegoldenrod;
+}
+
+.button1:hover {
+  background-color:#0952a5;
+  color: white;
+}
+
+
+.join{
+
+position: absolute;
+top: 150px;
+left: 40%;
+
+}
+
+
+.button1 {
+  top: 300px;
+  left: 100px;
+  background-color: #002D62; 
+  color: #AACCFF; 
+  border: 2px solid palegoldenrod;
+}
+
+.button1:hover {
+  background-color:#0952a5;
+  color: white;
+}
+
+.button2 {
+  top: 300px;
+  left: 400px;
+  background-color: #002D62; 
+  color: #AACCFF; 
+  border: 2px solid palegoldenrod;
+}
+
+.button2:hover {
+  background-color:#0952a5;
+  color: white;
+}
+
+
+.button3 {
+  top: 300px;
+  left: 700px;
+  background-color: #002D62; 
+  color: #AACCFF; 
+  border: 2px solid palegoldenrod;
+}
+
+.button3:hover {
+  background-color:#0952a5;
+  color: white;
+}
+
+.button4 {
+  top: 300px;
+  left: 1000px;
+  background-color: #002D62; 
+  color: #AACCFF; 
+  border: 2px solid palegoldenrod;
+}
+
+.button4:hover {
+  background-color:#0952a5;
+  color: white;
+}
+
+.box4 {
+
+
+  border: palegoldenrod 2px solid;
+  border-radius: 20px;
+
+
+}
+    </style>
+</head>
+<body>
+    <header>
+      <img src={% static "logo23.jpg" %} alt="logo" height="50px" width="50px" >
+       <!--<img class= "logo" src="logo23.jpg" alt="logo" height="50px" width="50px" > -->
+        <nav class="navbar">
+            
+            <ul>
+                
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/contact">Contact us</a></li>
+                
+               
+            </ul>
+        </nav>
+        <div class="login">
+
+
+            <ul>
+
+                
+                <li><a href="/prelogin">LOGIN</a></li>
+                
+            </ul>
+            
+        </div>
+    </header>
+
+    
+
+        <hr color=" #FFFF00">
+
+
+        <div class="fix">
+            <img src={% static "1092758.jpg" %} alt="background" height="581px" width="10000px" >
+           <!-- <img src="1092758.jpg" alt="background" height="581px" width="10000px" >-->
+         </div>
+     
+         
+
+             
+             
+             <fieldset>
+
+                     
+                 <div class="join">
+                         
+                         
+                         
+                         
+                    <H1 style="color: aquamarine;">Register New User </H1>
+                         
+                    
+                 </div>
+                        
+                        
+                        
+                        <a href="/registeradmin"><button class="button button1" href = "#">Register  Admin</button></a>
+                        <a href="/registerbooking"><button class="button button2" href = "#">Register Booking User</button></a>
+                        <a href="/registerdispatch"><button class="button button3" href = "#">Register Dispatch User</button></a>
+                        <a href="/registermis"><button class="button button4" href = >Register MIS User</button></a>
+                    
+                    
+            </fieldset>
+                    
+                    
+                </body>
+</html>

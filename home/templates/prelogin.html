@@ -1,0 +1,332 @@
+{% load static %}
+
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style/prelogin.css">
+    <style>
+      
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
+}
+
+
+header{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px ,10%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #24242A;
+}
+
+.navbar{
+  background-color: #24242A;
+  border-radius: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.navbar li{
+  float:left;
+  list-style: none; 
+  margin: 13px 20px;
+}
+.navbar ul{
+  overflow: auto;
+}
+
+.navbar li a{
+  padding: 3px 3px;
+  text-decoration: none;
+  color: white;
+  
+  transition: all 0.3s ease 0s;
+}
+
+
+
+
+
+
+
+
+.navbar li a:hover{
+          color: #0096FF;
+      }
+
+
+
+
+      .logo{
+  cursor: pointer;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  
+  }
+
+  .login li{
+      
+      float:left;
+      list-style: none; 
+      margin: 25px 20px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .login ul{
+      overflow: auto;
+  }
+  
+  .login li a{
+      padding: 3px 3px;
+      text-decoration: none;
+      color: white;
+      
+      transition: all 0.3s ease 0s;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  .login li a:hover{
+              color: #dde0e2;
+              font-family: Verdana, Geneva, Tahoma, sans-serif
+          }
+  
+.line{
+
+  color:#0096FF ;
+}
+
+.fix{
+
+  
+      
+      
+      /* display: block; */
+    
+      
+      overflow: hidden;
+    
+}
+
+.text1{
+
+  position: absolute;
+  color: #AACCFF;
+  top: 150px;
+  left: 100px;
+  padding-right: 500px;
+  
+  
+  text-decoration: none;
+  border: palegoldenrod 2px solid;
+  border-radius: 20px;
+  
+
+}
+
+.text1 li{
+
+  text-decoration: none;
+
+  padding: 50px;
+}
+.text1 ul{
+
+text-decoration: none;
+
+}
+
+.img2 {
+
+  position: absolute;
+  top: 160px;
+  left: 665px;
+ 
+  
+}
+
+button {
+
+      position: absolute;
+      
+      
+      
+      border: none;
+      
+      padding: 16px 32px;
+      text-align: center;
+      text-decoration: none;
+      
+      font-size: 16px;
+      /* margin: 4px 2px; */
+      transition-duration: 0.4s;
+      cursor: pointer;
+    
+}
+
+
+
+
+.join{
+
+position: absolute;
+top: 150px;
+left:560px;
+
+}
+
+
+.button1 {
+  top: 300px;
+  left: 100px;
+  background-color: #24242A; 
+  color: #ffffff; 
+  border: 2px solid palegoldenrod;
+}
+
+.button1:hover {
+  background-color:rgb(175, 233, 233);
+  color: rgb(0, 0, 0);
+  border: 2px solid #24242A ;
+}
+
+.button2 {
+  top: 300px;
+  left: 400px;
+  background-color: #24242A; 
+  color: #ffffff; 
+  border: 2px solid palegoldenrod;
+}
+
+.button2:hover {
+  background-color:rgb(175, 233, 233);
+  color: rgb(0, 0, 0);
+  border: 2px solid #24242A ;
+}
+
+
+.button3 {
+  top: 300px;
+  left: 700px;
+  background-color: #24242A; 
+  color: #ffffff; 
+  border: 2px solid palegoldenrod;
+}
+
+.button3:hover {
+  background-color:rgb(175, 233, 233);
+  color: rgb(0, 0, 0);
+  border: 2px solid #24242A ;
+}
+
+.button4 {
+  top: 300px;
+  left: 1000px;
+  background-color: #24242A; 
+  color: #ffffff; 
+  border: 2px solid palegoldenrod;
+}
+
+.button4:hover {
+  background-color:rgb(175, 233, 233);
+  color: rgb(0, 0, 0);
+  border: 2px solid #24242A ;
+}
+
+.box4 {
+
+
+  border: palegoldenrod 2px solid;
+  border-radius: 20px;
+
+
+}
+    </style>
+</head>
+<body>
+  <header>
+    <img class= "logo" src={% static "logo23.jpg" %}  alt="logo" height="50px" width="50px" >
+    <!--<img class= "logo" src="/home/templates/logo23.jpg" alt="logo" height="50px" width="50px" > -->
+    <nav class="navbar">
+        
+        <ul>
+            
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/contact">Contact us</a></li>
+            
+           
+        </ul>
+    </nav>
+    <div class="login">
+
+
+        <ul>
+
+            
+            <li><a href="/prelogin">LOGIN</a></li>
+            
+        </ul>
+        
+    </div>
+</header>
+
+    
+
+        <hr color=" #FFFF00">
+
+
+        <div class="fix">
+            <img src={% static "blue.jpg" %} alt="background" height="581px" width="10000px" >
+           <!-- <img src="1092758.jpg" alt="background" height="581px" width="10000px" >-->
+         </div>
+     
+         
+
+             
+             
+             <fieldset>
+
+                     
+                 <div class="join">
+                         
+                         
+                         
+                         
+                    <H1 style="color: rgb(255, 255, 255) ;">LOGIN AS   </H1>
+                         
+                    
+                 </div>
+                        
+                        
+                        
+                        <a href="/bookinglogin"><button class="button button1" href = "#">Booking user Login</button></a>
+                        <a href="/dispatchlogin"><button class="button button2" href = "#">Dispatch Login</button></a>
+                        <a href="/mislogin"><button class="button button3" href = "#">MIS Login</button></a>
+                        <a href="/adminlogin"><button class="button button4" href = >Admin Login</button></a>
+                    
+                    
+            </fieldset>
+                    
+                    
+                </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    {%if msg%}
+    <script>
+        window.alert('{{msg}}');
+    </script>
+    {% endif%}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>New Product Resgistration</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+       <h1>New Product Registration</h1>
+       
+    <form action="/postregisternewproduct/" method="post">
+    {% csrf_token %}
+      <label for="fname">Company id:</label><br>
+      <input type="text" id="compname" name="compname"><br>
+      <label for="lname">Company Name:</label><br>
+      <input type="text" id="compname" name="compname"><br>
+      <label for="lname">Product Name:</label><br>
+      <input type="text" id="prodname" name="prodname"><br>
+      <label for="lname">Email id:</label><br>
+      <input type="text" id="compmail" name="compmail"><br>
+      <label for="lname">Contact Number 1:</label><br>
+      <input type="phone" id="compcont1" name="compcont1"><br>
+      <label for="lname">Contact Number 2:</label><br>
+      <input type="phone" id="compcont2" name="compcont2"><br>
+      <label for="lname">Address:</label><br>
+      <input type="text" id="compadd" name="compadd"><br>
+      <label for="lname">City:</label><br>
+      <input type="text" id="compcity" name="compcity"><br>
+      <label for="lname">State:</label><br>
+      <input type="text" id="compstate" name="compstate"><br>
+      <label for="lname">Cost (per Kg):</label><br>
+      <input type="number" id="prodcostkg" name="prodcostkg"><br>
+      <label for="lname">Cost (per Box):</label><br>
+      <input type="number" id="prodcostbox" name="prodcostbox"><br>
+      <input type="submit" value="Submit">
+
+   </form>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script src="" async defer></script>
+    </body>
+</html>
