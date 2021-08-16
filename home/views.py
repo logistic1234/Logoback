@@ -216,6 +216,26 @@ def postloginbooking(request) :
     passwd =  request.POST.get('password')
     firebase=FirebaseApplication("https://neemeesh-trial-default-rtdb.firebaseio.com/", None)
     result=firebase.get('/Data/Signup/Booking', None)
+    db2 =  database.child("Data").child("Product").get()
+    print(db2.val())
+    for i in db2.each() :
+        data1 = i.val()
+        print(data1)
+        company_name = data1["Company Name"]
+        print(company_name)
+        Product_name = data1["Product Name"]
+        print(Product_name)
+        company_address = data1["Address"]
+        company_city = data1["City"]
+        company_email = data1["Email id"]
+        company_state = data1["State"]
+        
+        return render (request , "lh1.html" , {"company_name":company_name, "Product_name":Product_name , "company_address":company_address, "company_city":company_city , "company_email": company_email , "company_state":company_state })
+    
+
+
+
+    
     flag=0
     tempmail='0'
     msg='0'
@@ -427,3 +447,5 @@ def postdeleteuser(request):
             auth.delete_user(user.uid)
             return render(request , "deleteuser.html" , {"msg1" : "The User is deleted succesfully!"})
     return render(request , "deleteuser.html" , {"msg1" : "User not Found!"})
+
+
