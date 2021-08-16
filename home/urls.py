@@ -43,5 +43,5 @@ urlpatterns = [
      path("postadminupdate/" , views.postadminupdate ,name='postadminupdate' ),
      path("postdeleteuser/" , views.postdeleteuser ,name='postuserdelete' ),
      path("deleteuser/" , views.deleteuser ,name='deleteuser' ),
-     #path("postadminupdate1/" , views.postadminupdate1 ,name='postadminupdate1' ),
+     path("productdetails/" , views.productdetails ,name='productdetails' ),
 ]
