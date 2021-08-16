@@ -61,6 +61,7 @@ def registermis (request) :
 def postregisteradmin (request) :
     name = request.POST.get('name')
     email = request.POST.get('email')
+    id=request.POST.get('id')
     passw1 = request.POST.get('pass')
     address = request.POST.get('add')
     country = request.POST.get('count')
@@ -80,6 +81,7 @@ def postregisteradmin (request) :
         "name" :name ,
         "email" : email ,
         "address" : address ,
+        "id":id,
             "country" : country ,
             "state":state,
             "city":city,
@@ -419,13 +421,15 @@ def postadminupdate (request) :
                 "address" : new_address ,
                  "city"   : new_city ,
                  "country": new_country ,
-                 "email"  : new_email ,
+               
                  "name"   : new_name ,
                  "phone"  : new_phone ,
                  "pincode": new_pincode ,
                  "state"  :  new_state 
                 })
-                return render(request , "adminupdate.html" , {"msg1" : "The details of the required user have been updated !!"})
+                
+                return render(request , "usertable.html" , {"msg1" : "The details of the required user have been updated !!"})
+                messages.success(request, 'Your message has been sent!')
             else :
                 msg1 = "This Name does not match with the give Email!"
                 return render(request , "adminupdate.html" , {"msg1" : msg1})
