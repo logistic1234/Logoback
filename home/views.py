@@ -408,12 +408,14 @@ def postadminupdate (request) :
     new_address = request.POST.get("newaddress")
     new_city = request.POST.get("newcity")
     new_country = request.POST.get("newcountry")
-    new_email = request.POST.get("newemail")
+    '''new_email = request.POST.get("newemail")'''
     new_name = request.POST.get("newname")
     new_phone= request.POST.get("newphone")
     new_pincode = request.POST.get("newpincode")
     new_state = request.POST.get("newstate")
-
+    '''user=authe.create_user_with_email_and_password(new_email,passw1)
+    session_id=user['idToken']
+    request.session['uid']=str(session_id)'''
     for i in db.each() :
         if i.val()['email']==old_email : 
             if i.val()['name']==old_user_name :
@@ -421,7 +423,7 @@ def postadminupdate (request) :
                 "address" : new_address ,
                  "city"   : new_city ,
                  "country": new_country ,
-                 "email"  : new_email ,
+                 '''"email"  : new_email ,'''
                  "name"   : new_name ,
                  "phone"  : new_phone ,
                  "pincode": new_pincode ,
