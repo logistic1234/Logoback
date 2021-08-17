@@ -189,7 +189,7 @@ def postloginadmin (request) :
     tempmail='0'
     msg='0'
     for userid,user in result.items():
-        if email==user['email'] :    
+        if email==user['Email'] :    
             flag=1
             # if there is no error then signin the user with given email and password
             try:
@@ -257,7 +257,7 @@ def postloginmis(request) :
     tempmail='0'
     msg='0'
     for userid,user in result.items():
-        if email==user['email'] :    
+        if email==user['Email'] :    
             flag=1
             # if there is no error then signin the user with given email and password
             try:
@@ -281,7 +281,7 @@ def postlogindispatch(request) :
     tempmail='0'
     msg='0'
     for userid,user in result.items():
-        if email==user['email'] :    
+        if email==user['Email'] :    
             flag=1
             # if there is no error then signin the user with given email and password
             try:
