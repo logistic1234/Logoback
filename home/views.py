@@ -86,96 +86,75 @@ def postregisteradmin (request) :
     # messages.success(request, 'Your have successfully registered!')
     # return render(request,"registernewuser.html")
 def postregisterbooking (request) :
-    name = request.POST.get('name')
     email = request.POST.get('email')
     passw1 = request.POST.get('pass')
-    address = request.POST.get('add')
-    country = request.POST.get('count')
-    state = request.POST.get('state')
-    city = request.POST.get('city')
-    pincode = request.POST.get('pin')
-    phone = request.POST.get('phone')
     try:
         user=authe.create_user_with_email_and_password(email,passw1)
         session_id=user['idToken']
         request.session['uid']=str(session_id)
     except:
         msg="Email Already Exists!"
-        return render(request,"registerbooking.html",{"msg":msg}) 
+        return render(request,"registeradmin.html",{"msg":msg}) 
         #push data 
     data={
-        "name" :name ,
-        "email" : email ,
-        "address" : address ,
-        "country" : country ,
-        "state":state,
-        "city":city,
-        "pincode":pincode,
-        "phone":phone
+        "Name" : request.POST.get('name') ,
+        "Email" : email ,
+        "Address" : request.POST.get('add') ,
+        "User Id": request.POST.get('id'),
+        "State": request.POST.get('state'),
+        "City": request.POST.get('city'),
+        "Pincode": request.POST.get('pin'),
+        "Phone Number": request.POST.get('phone'),
         }
     database.child("Data").child("Signup").child("Booking").push(data)
     print("User created")
     msg="You have successfully registered a new Booking User!"
     return render(request,"registernewuser.html",{"msg":msg})
 def postregistermis (request) :
-    name = request.POST.get('name')
     email = request.POST.get('email')
     passw1 = request.POST.get('pass')
-    address = request.POST.get('add')
-    country = request.POST.get('count')
-    state = request.POST.get('state')
-    city = request.POST.get('city')
-    pincode = request.POST.get('pin')
-    phone = request.POST.get('phone')
     try:
         user=authe.create_user_with_email_and_password(email,passw1)
         session_id=user['idToken']
         request.session['uid']=str(session_id)
     except:
         msg="Email Already Exists!"
-        return render(request,"registermis.html",{"msg":msg}) 
+        return render(request,"registeradmin.html",{"msg":msg}) 
         #push data 
     data={
-        "name" :name ,
-        "email" : email ,
-        "address" : address ,
-            "country" : country ,
-            "state":state,
-            "city":city,
-            "pincode":pincode,
-            "phone":phone
+        "Name" : request.POST.get('name') ,
+        "Email" : email ,
+        "Address" : request.POST.get('add') ,
+        "User Id": request.POST.get('id'),
+        "State": request.POST.get('state'),
+        "City": request.POST.get('city'),
+        "Pincode": request.POST.get('pin'),
+        "Phone Number": request.POST.get('phone'),
         }
     database.child("Data").child("Signup").child("MIS").push(data)
     print("User created")
     msg="You have successfully registered a new MIS User!"
     return render(request,"registernewuser.html",{"msg":msg})
 def postregisterdispatch (request) :
-    name = request.POST.get('name')
     email = request.POST.get('email')
     passw1 = request.POST.get('pass')
-    address = request.POST.get('add')
-    country = request.POST.get('count')
-    state = request.POST.get('state')
-    city = request.POST.get('city')
-    pincode = request.POST.get('pin')
-    phone = request.POST.get('phone')
     try:
         user=authe.create_user_with_email_and_password(email,passw1)
         session_id=user['idToken']
         request.session['uid']=str(session_id)
     except:
         msg="Email Already Exists!"
-        return render(request,"registerdispatch.html",{"msg":msg}) 
+        return render(request,"registeradmin.html",{"msg":msg}) 
         #push data 
     data={
-        "name" :name ,
-        "email" : email ,
-        "address" : address ,
-        "country" : country ,
-        "state":state,
-        "city":city,
-        "pincode":pincode,
-        "phone":phone
+        "Name" : request.POST.get('name') ,
+        "Email" : email ,
+        "Address" : request.POST.get('add') ,
+        "User Id": request.POST.get('id'),
+        "State": request.POST.get('state'),
+        "City": request.POST.get('city'),
+        "Pincode": request.POST.get('pin'),
+        "Phone Number": request.POST.get('phone'),
         }
     database.child("Data").child("Signup").child("Dispatch").push(data)
     msg="You have successfully registered a new Dispatch User!"
@@ -189,7 +168,7 @@ def postloginadmin (request) :
     tempmail='0'
     msg='0'
     for userid,user in result.items():
-        if email==user['email'] :    
+        if email==user['Email'] :    
             flag=1
             # if there is no error then signin the user with given email and password
             try:
@@ -233,7 +212,7 @@ def postloginbooking(request) :
     tempmail='0'
     msg='0'
     for userid,user in result.items():
-        if email==user['email'] :    
+        if email==user['Email'] :    
             flag=1
             # if there is no error then signin the user with given email and password
             try:
@@ -257,7 +236,7 @@ def postloginmis(request) :
     tempmail='0'
     msg='0'
     for userid,user in result.items():
-        if email==user['email'] :    
+        if email==user['Email'] :    
             flag=1
             # if there is no error then signin the user with given email and password
             try:
@@ -281,7 +260,7 @@ def postlogindispatch(request) :
     tempmail='0'
     msg='0'
     for userid,user in result.items():
-        if email==user['email'] :    
+        if email==user['Email'] :    
             flag=1
             # if there is no error then signin the user with given email and password
             try:
