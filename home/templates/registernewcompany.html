@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% load static %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -11,6 +11,7 @@
     </script>
     {% endif%}
     <head>
+        <script src={% static "cities.js" %}></script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>New Company Resgistration</title>
@@ -35,12 +36,11 @@
       <input type="phone" id="compcont2" name="compcont2"><br>
       <label for="lname">Address:</label><br>
       <input type="text" id="compadd" name="compadd"><br>
-      <label for="lname">City:</label><br>
-      <input type="text" id="compcity" name="compcity"><br>
+      <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="state" method="GET" class="form-control" required></select><br>
+        <select id ="state" name="city" class="form-control" method="GET" required></select>
+        <script language="javascript">print_state("sts");</script><br>
       <label for="lname">Pincode:</label><br>
       <input type="text" id="pincode" name="pincode"><br>
-      <label for="lname">State:</label><br>
-      <input type="text" id="compstate" name="compstate"><br>
       <input type="submit" value="Submit">
 
    </form>
