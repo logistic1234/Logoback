@@ -59,16 +59,8 @@ def registerdispatch (request) :
 def registermis (request) :
     return render(request , "registermis.html")    
 def postregisteradmin (request) :
-    name = request.POST.get('name')
     email = request.POST.get('email')
-    id=request.POST.get('id')
     passw1 = request.POST.get('pass')
-    address = request.POST.get('add')
-    country = request.POST.get('count')
-    state = request.POST.get('state')
-    city = request.POST.get('city')
-    pincode = request.POST.get('pin')
-    phone = request.POST.get('phone')
     try:
         user=authe.create_user_with_email_and_password(email,passw1)
         session_id=user['idToken']
@@ -78,15 +70,14 @@ def postregisteradmin (request) :
         return render(request,"registeradmin.html",{"msg":msg}) 
         #push data 
     data={
-        "name" :name ,
-        "email" : email ,
-        "address" : address ,
-        "id":id,
-            "country" : country ,
-            "state":state,
-            "city":city,
-            "pincode":pincode,
-            "phone":phone
+        "Name" : request.POST.get('name') ,
+        "Email" : email ,
+        "Address" : request.POST.get('add') ,
+        "User Id": request.POST.get('id'),
+        "State": request.POST.get('state'),
+        "City": request.POST.get('city'),
+        "Pincode": request.POST.get('pin'),
+        "Phone Number": request.POST.get('phone'),
         }
     database.child("Data").child("Signup").child("Admin").push(data)
     print("User created")
@@ -116,11 +107,11 @@ def postregisterbooking (request) :
         "name" :name ,
         "email" : email ,
         "address" : address ,
-            "country" : country ,
-            "state":state,
-            "city":city,
-            "pincode":pincode,
-            "phone":phone
+        "country" : country ,
+        "state":state,
+        "city":city,
+        "pincode":pincode,
+        "phone":phone
         }
     database.child("Data").child("Signup").child("Booking").push(data)
     print("User created")
