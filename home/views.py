@@ -421,15 +421,13 @@ def postadminupdate (request) :
                 "address" : new_address ,
                  "city"   : new_city ,
                  "country": new_country ,
-               
+                 "email"  : new_email ,
                  "name"   : new_name ,
                  "phone"  : new_phone ,
                  "pincode": new_pincode ,
                  "state"  :  new_state 
                 })
-                
-                return render(request , "usertable.html" , {"msg1" : "The details of the required user have been updated !!"})
-                messages.success(request, 'Your message has been sent!')
+                return render(request , "adminupdate.html" , {"msg1" : "The details of the required user have been updated !!"})
             else :
                 msg1 = "This Name does not match with the give Email!"
                 return render(request , "adminupdate.html" , {"msg1" : msg1})
@@ -456,3 +454,4 @@ def productdetails(request):
     firebase=FirebaseApplication("https://neemeesh-trial-default-rtdb.firebaseio.com/", None)
     compdetails=list(firebase.get("/Data/Product",None).values())
     return render (request ,"productdetails.html",{'compdetails':compdetails})
+
