@@ -63,6 +63,7 @@
     </script>
     {% endif%}
     <head>
+      <script src={% static "cities.js" %}></script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>REGISTER ADMIN</title>
@@ -356,47 +357,22 @@ select{
             {% csrf_token %}
             <h1>REGISTER ADMIN</h1>
             <input type="text" name="name" placeholder="Enter Your Name">
-            <input type="text" name="email" placeholder="e-mail">
+            <input type="text" name="email" placeholder="E-mail">
             <input type="text" name="id" placeholder="I.D.">
             <input type="password" name="pass" placeholder="Password">
             <input type="text" name="add" placeholder="Address">
            
           
-            <div class="select1"  name="state"  >
-                <select name="state">
-                    <option value="">State</option>
-                    <option value="Andhra Pradesh">Andhra Pradesh</option>   
-                    <option value="Assam">Assam</option>   
-                    <option value="Bihar">Bihar</option>   
-                    <option value="Goa">Goa</option>   
-                    <option value="Gujarat">Gujarat</option>   
-                    <option value="Haryana">Haryana</option>   
-                    <option value="Himachal Pradesh">Himachal Pradesh</option>   
-                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>   
-                    <option value="Jharkhand">Jharkhand</option>   
-                    <option value="Karnataka">Karnataka</option>   
-                    <option value="Kerala">KeralaKerala</option>   
-                    <option value="Madhya Pradesh">Madhya Pradesh</option>   
-                    <option value="Maharashtra">Maharashtra</option>
-                    <option value="Manipur">Manipur</option>   
-                       
-                </select>
-
-                
-            </div>
-            <div>
-                <select>
-                    <option value="Select State" name="city">Select city</option>
-                    
-                </select>
-            </div>
+            <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="state" method="GET" class="form-control" required></select>
+            <select id ="state" name="city" class="form-control" method="GET" required></select>
+            <script language="javascript">print_state("sts");</script>
             
 
             <input type="number" name="pin" placeholder="Pin code">
             <input type="phone" name="phone" placeholder="Phone number">
             
 
-            <input type="submit" name="" value="submit">
+            <input type="submit" name="" value="Submit">
         </form>
  </body>
 </html>
