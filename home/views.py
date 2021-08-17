@@ -361,28 +361,25 @@ def misforget (request) :
 def adminforget (request) :
     return render (request ,"postresetadmin.html")
 
-def registernewproduct(request):
-    return render(request , "registernewproduct.html")
+def registernewcompany(request):
+    return render(request , "registernewcompany.html")
 
-def postregisternewproduct(request):
-    
+def postregisternewcompany(request):
     firebase=FirebaseApplication("https://neemeesh-trial-default-rtdb.firebaseio.com/", None)
     Data={
         'Company id': request.POST.get('compid'),
         'Company Name': request.POST.get('compname'),
-        'Product Name': request.POST.get('prodname'),
         'Email id': request.POST.get('compmail'),
         'Contact Number 1': request.POST.get('compcont1'),
         'Contact Number 2': request.POST.get('compcont2'),
         'Address': request.POST.get('compadd'),
         'City': request.POST.get('compcity'),
+        'Pincode' : request.POST.get('pincode'),
         'State': request.POST.get('compstate'),
-        'Cost(per Kg)': request.POST.get('prodcostkg'),
-        'Cost(per Box)': request.POST.get('prodcostbox'),
     }
-    firebase.post('/Data/Product/', Data)
-    msg="Product is Registered Successfully!"
-    return render(request,"registernewproduct.html",{"msg":msg})
+    firebase.post('/Data/Company/', Data)
+    msg="Company is Registered Successfully!"
+    return render(request,"registernewcompany.html",{"msg":msg})
 def usertable (request) :
     firebase=FirebaseApplication("https://neemeesh-trial-default-rtdb.firebaseio.com/", None)
     admindata=list(firebase.get("/Data/Signup/Admin",None).values())
@@ -457,3 +454,46 @@ def productdetails(request):
     compdetails=list(firebase.get("/Data/Product",None).values())
     return render (request ,"productdetails.html",{'compdetails':compdetails})
 
+def bookingorder(request):
+    return render(request, 'bookingorder.html')
+
+def postbookingorder(request):
+    firebase=FirebaseApplication("https://neemeesh-trial-default-rtdb.firebaseio.com/", None)
+    compname = request.POST.get("sender")
+    receiver = request.POST.get("receiver")
+    fromcity=request.POST.get("from")
+    tocity=request.POST.get("to")
+    invcno=request.POST.get("invcno")
+    method=request.POST.get("methodofpacking")
+    noofpckg=request.POST.get("noofpckg")
+    cost=request.POST.get("totalcost")
+    date=request.POST.get("date")
+    decription=request.POST.det("description")
+    
+def registernewproduct(request):
+    firebase=FirebaseApplication("https://neemeesh-trial-default-rtdb.firebaseio.com/", None)
+    companies=list(firebase.get("/Data/Company",None).values())
+    compnames=[]
+    for compdetails in companies:
+        for eachcompkey,eachcompval in compdetails.items():
+            if eachcompkey=='Company Name':
+                compnames.append(eachcompval)
+    return render(request, 'registernewproduct.html',{'compnames':compnames})
+def postregisternewproduct(request):    
+    firebase=FirebaseApplication("https://neemeesh-trial-default-rtdb.firebaseio.com/", None)
+    msg="Product is Registered Successfully!"
+    companies=list(firebase.get("/Data/Company",None).values())
+    compnames=[]
+    for compdetails in companies:
+        for eachcompkey,eachcompval in compdetails.items():
+            if eachcompkey=='Company Name':
+                compnames.append(eachcompval)
+    Data={
+        'Company Name': request.POST.get('compname'),
+        'Product Name': request.POST.get('prodname'),
+        'Product id': request.POST.get('prodid'),
+        'Cost per': request.POST.get('costper'),
+        'Cost' : request.POST.get('cost'),
+    }
+    firebase.post('/Data/Product/', Data)
+    return render(request, 'registernewproduct.html',{'compnames':compnames,"msg":msg,})

@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html>
+  {%if msg%}
+  <script>
+      window.alert('{{msg}}');
+  </script>
+  {% endif%}
    <head>
       <style>
          table, th, td {

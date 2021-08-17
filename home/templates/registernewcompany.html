@@ -13,34 +13,34 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>New Product Resgistration</title>
+        <title>New Company Resgistration</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
     </head>
     <body>
-       <h1>New Product Registration</h1>
+       <h1>New Company Registration</h1>
        
-    <form action="/postregisternewproduct/" method="post">
+    <form action="/postregisternewcompany/" method="post">
     {% csrf_token %}
+      <label for="fname">Company id:</label><br>
+      <input type="text" id="compname" name="compname"><br>
       <label for="lname">Company Name:</label><br>
-      <select name= "compname" method="GET" action="/">
-        {% for compname in compnames %}
-        <option value= "{{compname}}" >{{compname}}</option>"
-        {% endfor %}
-      </select><br>
-      <label for="lname">Product Name:</label><br>
-      <input type="text" id="prodname" name="prodname"><br>
-      <label for="lname">Product Id:</label><br>
-      <input type="text" id="prodid" name="prodid"><br>
-      <label for="lname">Cost Per:</label><br>
-      <select name= "costper" method="GET" action="/">
-        <option value="Kg" selected>Kg</option>
-        <option value="Box" selected>Box</option>
-    </select><br>
-      <label for="lname">Cost (in Rs.):</label><br>
-      <input type="number" id="cost" name="cost"><br>
-      <br>
+      <input type="text" id="compname" name="compname"><br>
+      <label for="lname">Email id:</label><br>
+      <input type="text" id="compmail" name="compmail"><br>
+      <label for="lname">Contact Number 1:</label><br>
+      <input type="phone" id="compcont1" name="compcont1"><br>
+      <label for="lname">Contact Number 2:</label><br>
+      <input type="phone" id="compcont2" name="compcont2"><br>
+      <label for="lname">Address:</label><br>
+      <input type="text" id="compadd" name="compadd"><br>
+      <label for="lname">City:</label><br>
+      <input type="text" id="compcity" name="compcity"><br>
+      <label for="lname">Pincode:</label><br>
+      <input type="text" id="pincode" name="pincode"><br>
+      <label for="lname">State:</label><br>
+      <input type="text" id="compstate" name="compstate"><br>
       <input type="submit" value="Submit">
 
    </form>
