@@ -1,24 +1,3 @@
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Home</title>
-</head>
-{%if msg%}
-    <script>
-        window.alert('{{msg}}');
-    </script>
-{% endif%}	
-<body>
-    <a href="/registernewuser">Register New User</a> <br><br>
-    <a href="/registernewproduct">Register New Company</a> <br><br>
-    <a href="/usertable">Show All Users</a> <br><br>
-   
-</body>
-</html>-->
-
 
 {% load static %}
 <!DOCTYPE html>
@@ -28,51 +7,101 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <!-- <link rel="stylesheet" href="style/prelogin.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="wx.css"> -->
+
     <style>
-
-
-
-
+      
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    
-}
+box-sizing: border-box;
+margin: 0;
+padding: 0;
 
+
+}
+a{
+text-decoration: none;
+}
 
 header{
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px ,10%;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-color: #24242A;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 30px ,10%;
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+background-color: #a4ebf3;
+/* background-color: #24242A; */
 }
 
 .navbar{
-    background-color: #24242A;
-    border-radius: 30px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-  }
+background-color: #a4ebf3;
+border-radius: 30px;
+font-family: 'Lexend Deca', sans-serif;
 
-  .navbar li{
-    float:left;
-    list-style: none; 
-    margin: 25px 20px;
+}
+
+.navbar li{
+float:left;
+list-style: none; 
+margin: 13px 20px;
 }
 .navbar ul{
-    overflow: auto;
+overflow: auto;
 }
 
 .navbar li a{
+padding: 3px 3px;
+text-decoration: none;
+color: rgb(0, 0, 0);
+
+
+transition: all 0.3s ease 0s;
+}
+
+
+
+
+
+
+
+
+.navbar li a:hover{
+        color: #0096FF;
+    }
+
+
+
+
+.logo{
+cursor: pointer;
+margin-left: 15px;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+
+.login li{
+    
+    float:left;
+    list-style: none; 
+    margin: 13px 20px;
+    font-family: 'Lexend Deca', sans-serif;
+    font-weight: bold;
+}
+.login ul{
+    overflow: auto;
+}
+
+.login li a{
     padding: 3px 3px;
     text-decoration: none;
-    color: white;
+    color: rgb(0, 0, 0);
+    font-family: 'Lexend Deca', sans-serif;
     
     transition: all 0.3s ease 0s;
 }
@@ -84,219 +113,137 @@ header{
 
 
 
-.navbar li a:hover{
+.login li a:hover{
             color: #0096FF;
+
         }
 
-
-
-
-.logo{
-    cursor: pointer;
-    margin-left: 15px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    }
-
-
-    .login li{
-        
-        float:left;
-        list-style: none; 
-        margin: 13px 20px;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
-    }
-    .login ul{
-        overflow: auto;
-    }
-    
-    .login li a{
-        padding: 3px 3px;
-        text-decoration: none;
-        color: white;
-        
-        transition: all 0.3s ease 0s;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    .login li a:hover{
-                color: #0096FF;
-                font-family: Verdana, Geneva, Tahoma, sans-serif
-            }
-    
 .line{
 
-    color:#0096FF ;
+color:#0096FF ;
 }
 
-.fix{
+/* .fix{
+
 
     
-        
-        
-        /* display: block; */
-      
-        
-        overflow: hidden;
-      
-}
+    
+    /* display: block; */
+  
+    
+    /* overflow: hidden; 
+  
+}  */
 
 .text1{
 
-    position: absolute;
-    color: #AACCFF;
-    top: 150px;
-    left: 100px;
-    padding-right: 500px;
-    
-    
-    text-decoration: none;
-    border: palegoldenrod 2px solid;
-    border-radius: 20px;
-    
+display: flex;
+margin-top: 30px;
+
+justify-content: center;
+color:  	#242424;
+/* vertical-align: middle; */
+width: 73%;
+  margin-left: auto;
+  margin-right: auto;
+
+
+
+
+text-decoration: none;
+border: rgb(0, 0, 0) 2px solid;
+/* border-width: 50px; */
+border-radius: 20px;
+margin-bottom: 20px;
+
 
 }
 
 .text1 li{
 
-    text-decoration: none;
+list-style: none;
 
-    padding: 50px;
+padding: 50px;
 }
 .text1 ul{
-
-text-decoration: none;
+list-style: none;
 
 }
 
 .img2 {
 
-    position: absolute;
-    top: 160px;
-    left: 665px;
-   
-    
+
+padding: 10px;
+
+
+}
+button{
+
+display: block;
+
+
+
 }
 
 button {
 
-        position: absolute;
-        
-        
-        
-        border: none;
-        
-        padding: 16px 32px;
-        text-align: center;
-        text-decoration: none;
-        
-        font-size: 16px;
-        /* margin: 4px 2px; */
-        transition-duration: 0.4s;
-        cursor: pointer;
-      
-}
+    /* position: absolute; */
+    /* top: 520px; */
+    border-radius: 20px;
+    /* left: 500px; */
+    border: none;
+    
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
   
-.button1 {
-    top: 140px;
-    left: 300px;
-    background-color: #002D62; 
-    color: #AACCFF; 
-    border: 2px solid palegoldenrod;
-  }
-
-  .button1:hover {
-    background-color:#0952a5;
-    color: white;
-  }
-  
-  
-.join{
-
-position: absolute;
-top: 150px;
-left: 500px;
-
 }
 
-
 .button1 {
-  top: 300px;
-  left: 100px;
-  background-color: #24242A; 
-  color: #ffffff; 
-  border: 2px solid palegoldenrod;
+background-color: #c1f3fa; 
+color: #020202; 
+text-decoration: none;
+border: 2px solid rgb(0, 0, 0);
 }
 
 .button1:hover {
-  background-color:rgb(175, 233, 233);
-  color: rgb(0, 0, 0);
-  border: 2px solid #24242A ;
+background-color:#8ccaf7;
+color: rgb(0, 0, 0);
+} 
+
+
+.co  {
+  flex: 1;
+text-align: center;
+margin-top: 150px;
 }
-
-.button2 {
-  top: 300px;
-  left: 390px;
-  background-color: #24242A; 
-  color: #ffffff; 
-  border: 2px solid palegoldenrod;
+.co ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 8px 19px;
+    position: relative;
 }
-
-.button2:hover {
-  background-color:rgb(175, 233, 233);
-  color: rgb(0, 0, 0);
-  border: 2px solid #24242A ;
+.co a{
+  color: #020202;
 }
+/* .cp ul> li> a{
+    
+    text-decoration: none;
+    font-size: 18px;
+} */
 
-
-.button3 {
-  top: 300px;
-  left: 720px;
-  background-color: #24242A; 
-  color: #ffffff; 
-  border: 2px solid palegoldenrod;
-}
-
-.button3:hover {
-  background-color:rgb(175, 233, 233);
-  color: rgb(0, 0, 0);
-  border: 2px solid #24242A ;
-}
-
-.button4 {
-  top: 300px;
-  left: 1000px;
-  background-color: #24242A; 
-  color: #ffffff; 
-  border: 2px solid palegoldenrod;
-}
-
-.button4:hover {
-  background-color:rgb(175, 233, 233);
-  color: rgb(0, 0, 0);
-  border: 2px solid #24242A ;
-}
- 
-  .box4 {
-
-
-    border: palegoldenrod 2px solid;
-    border-radius: 20px;
-
-
-  }
 
     </style>
 </head>
-<body>
+<body style="background-color:  #ffffff;">
     <header>
-        <img src={% static "logo23.jpg" %} alt="logo" height="50px" width="50px" > 
+        <img class= "logo" src={% static "logo23.jpg" %}  alt="logo" height="50px" width="50px" >
+        <!--<img class= "logo" src="/home/templates/logo23.jpg" alt="logo" height="50px" width="50px" > -->
         <nav class="navbar">
             
             <ul>
@@ -324,40 +271,19 @@ left: 500px;
 
     
 
-        <hr color=" #FFFF00">
+        <hr >
 
 
-        <div class="fix">
+        <h1 style="text-align: center; margin-top: 50px;">Booking Panel</h1>
+<div class="co">
+  
+<ul >
+  
+  <li href = "/bookingorder"><button class="button1 " ><a href="/bookingorder" >Order Products</a></button></li>
 
-            <img src={% static "blue.jpg" %} alt="background" height="581px" width="10000px" >
-         </div>
-     
-         
+</ul>
 
-             
-             
-             
-
-                     
-                 <div class="join">
-                         
-                         
-                         
-                         
-                    <H1 style="color: aquamarine;">Welcome to Admin Panel  </H1>
-                         
-                    
-                 </div>
-                        
-                        
-                        
-                        <a href="/bookingorder"><button class="button button1" href = "#">Order Products</button></a>
-                        <!-- <a href="/registernewproduct"><button class="button button2" href = "#">Register New Company</button></a>
-                        <a href="/usertable"><button class="button button3" href = "#">Show All Users</button></a>
-                        <a href="#"><button class="button button4" href = "#">Register New product</button></a> -->
-                        
-                    
-            
-                    
-                    
-                </body>
+</div>
+    </body>
+        
+</html>  

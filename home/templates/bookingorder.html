@@ -20,26 +20,40 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
     </head>
-    <script>
+    <script type="text/javascript">
     function mult(value) {
-        var x; 
-        x= 3 * value ; y= 3 * value ; 
+        var x;
+        var cost = '{{ cost }}';
+        x= cost * value ;
         document.getElementById('TotalCost').value = x ;
 
     }
 
     </script>
 
-
+    
 
     <body>
         
-        <form action="#" method="POST">
+        <form action="/postbookingorder/" method="POST">
         {% csrf_token %}
-        
+        <!--<h1>Enter the old details of the user you want to Update</h1>
+  <label for="fname">User Type:</label>
+  <input type="text" id="fname" name="usertype"><br><br>
+  <label for="lname">Enter the previous Email:</label>
+  <input type="text" id="email" name="email"><br><br>
+  <label for="lname">Enter the previous Name:</label>
+  <input type="text" id="username" name="username"><br><br> -->
+  
     <h1>Booking User Data</h1>
-  <label for="fname">Sender:</label>
-  <input type="text" id="fname" name="sender"><br><br>
+  <label for="lname">Company Name:</label><br>
+      <select name= "compname" method="GET" action="/">
+        {% for compname in compnames %}
+        <option value= "{{compname}}" >{{compname}}</option>
+        {% endfor %}
+      </select><br>
+  
+  
   <label for="fname">Receiver:</label>
   <input type="text" id="fname" name="receiver"><br><br>
   <label for="fname">From:</label>
@@ -48,21 +62,25 @@
   <input type="number" id="fname" name="invcno"><br><br>
   <label for="fname">To:</label>
   <input type="text" id="fname" name="to"><br><br>
+
+
   <label for="fname">Number of Packages:</label>
   <input type="number" id="fname" name="noofpckg" onkeyup="mult(this.value);"><br><br>
   <label for="fname">Total Cost:</label><br><br>
   <input type="text" id="TotalCost" name="totalcost"><br><br>
+
+  <!--<label for="fname">Number Of Packages:</label><br><br>
+  <input type="text" id="fname" name="methodofpacking"><br><br> -->
+ 
+
   <label for="fname">Method of Packing:</label><br><br>
   <input type="text" id="fname" name="methodofpacking"><br><br>
   <label for="fname">Description - (said to contain):</label>
   <input type="text" id="fname" name="description"><br><br>
   <label for="fname">Date:</label>
-  <input type="text" id="fname" name="date"><br><br>
+  {{present_date}} <br> <br>
+  
   <input type="submit" value="Submit Details">
 </form>
-
-        
-        
-        
     </body>
 </html>
