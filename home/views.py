@@ -340,17 +340,15 @@ def usertable (request) :
     misdata=list(firebase.get("/Data/Signup/MIS",None).values())
     #print(data[0]['address'])
     return render (request ,"usertable.html",{'admindata':admindata,'dispatchdata':dispatchdata,'bookingdata':bookingdata,'misdata':misdata,})
-def adminupdate(request)  :
-    return  render(request ,"adminupdate.html" )
-def postadminupdate (request) :
+def checkuserupdate(request)  :
+    return  render(request ,"checkuserupdate.html" )
+def postcheckuserupdate (request) :
     user_type = request.POST.get("usertype")
     old_email = request.POST.get("email")
-    old_user_name=request.POST.get("username")
     db = database.child("Data").child("Signup").child(user_type).get()
     new_address = request.POST.get("newaddress")
     new_city = request.POST.get("newcity")
     new_country = request.POST.get("newcountry")
-    '''new_email = request.POST.get("newemail")'''
     new_name = request.POST.get("newname")
     new_phone= request.POST.get("newphone")
     new_pincode = request.POST.get("newpincode")
@@ -360,7 +358,6 @@ def postadminupdate (request) :
     request.session['uid']=str(session_id)'''
     for i in db.each() :
         if i.val()['Email']==old_email : 
-            if i.val()['Name']==old_user_name :
                 database.child("Data").child("Signup").child(user_type).child(i.key()).update({
                 "address" : new_address ,
                  "city"   : new_city ,
@@ -372,9 +369,6 @@ def postadminupdate (request) :
                  "state"  :  new_state 
                 })
                 return render(request , "adminupdate.html" , {"msg1" : "The details of the required user have been updated !!"})
-            else :
-                msg1 = "This Name does not match with the give Email!"
-                return render(request , "adminupdate.html" , {"msg1" : msg1})
         else :
             msg1 = "This email is not Registered in our database!"
             return render(request , "adminupdate.html" , {"msg1" : msg1})
