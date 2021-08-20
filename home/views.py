@@ -346,9 +346,18 @@ def postcheckuserupdate (request) :
     user_type = request.POST.get("usertype")
     old_email = request.POST.get("email")
     db = database.child("Data").child("Signup").child(user_type).get()
+    for user in db.each() :
+        if user.val()['Email']==old_email and auth.get_user_by_email(old_email) : 
+            return render(request , "updateuser.html" ,{"old_email":old_email, "user_type": user_type})
+    return render(request , "checkuserupdate.html" , {"msg" : "User not Found!"})
+    
+def postuserupdate(request):
+    email = request.POST.get("old_email")
+    user_type = request.POST.get("usertype")
+    db = database.child("Data").child("Signup").child(user_type).get()
     new_address = request.POST.get("newaddress")
     new_city = request.POST.get("newcity")
-    new_country = request.POST.get("newcountry")
+    new_userid = request.POST.get("newuserid")
     new_name = request.POST.get("newname")
     new_phone= request.POST.get("newphone")
     new_pincode = request.POST.get("newpincode")
@@ -357,21 +366,18 @@ def postcheckuserupdate (request) :
     session_id=user['idToken']
     request.session['uid']=str(session_id)'''
     for i in db.each() :
-        if i.val()['Email']==old_email : 
                 database.child("Data").child("Signup").child(user_type).child(i.key()).update({
-                "address" : new_address ,
-                 "city"   : new_city ,
-                 "country": new_country ,
-                 '''"email"  : new_email ,'''
-                 "name"   : new_name ,
-                 "phone"  : new_phone ,
-                 "pincode": new_pincode ,
-                 "state"  :  new_state 
+                "Address" : new_address ,
+                 "City"   : new_city ,
+                 "User Id": new_userid ,
+                 "Name"   : new_name ,
+                 "Phone Number"  : new_phone ,
+                 "Pincode": new_pincode ,
+                 "State"  :  new_state ,
+                 "Email": email,
                 })
-                return render(request , "adminupdate.html" , {"msg1" : "The details of the required user have been updated !!"})
-        else :
-            msg1 = "This email is not Registered in our database!"
-            return render(request , "adminupdate.html" , {"msg1" : msg1})
+    return render(request , "adminupdate.html" , {"msg1" : "The details of the required user have been updated !!"})
+        
 def deleteuser(request)  :
     return render(request,"deleteuser.html")
 def postdeleteuser(request):
