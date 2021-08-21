@@ -48,4 +48,5 @@ urlpatterns = [
      path("productdetails/" , views.productdetails ,name='productdetails' ),
      path("bookingorder/" , views.bookingorder ,name='bookingorder' ),
      path("postbookingorder/" , views.postbookingorder ,name='postbookingorder' ),
+     path("postuserupdate/" , views.postuserupdate ,name='postuserupdate' ),
 ]
