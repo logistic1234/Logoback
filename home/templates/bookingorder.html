@@ -13,6 +13,8 @@
 
 <html>
     <head>
+        <script src={% static "cities.js" %}></script>
+        <script src={% static "cities.js" %}></script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title></title>
@@ -355,14 +357,23 @@ display: block;
 
       <span class="toop">
           
+          <hr>
+          <label for="fname" >From:</label> 
           
-          <!-- <label for="fname">From:</label> -->
-          <input type="text" style=" text-align: center; font-size: 30px; height: 50px; width: 400px; margin-left: 2% ; margin-bottom: 5px; size: 50;" id="fname" placeholder="FROM" name="from">
-          <!-- <label for="fname">To:</label> -->
-          <input type="text"  style=" text-align: center; font-size: 30px; height: 50px ; width: 400px; float: right;  margin-right: 2%; margin-bottom: 5px;" placeholder="To" id="fname" name="to">
+          <!--<input type="text" style=" text-align: center; font-size: 30px; height: 50px; width: 400px; margin-left: 2% ; margin-bottom: 5px; size: 50;" id="fname" placeholder="FROM" name="from">-->
+          <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="state1" method="GET" class="form-control" required></select>
+          <select id ="state" name="city" class="form-control" method="GET" required></select>
+          <script language="javascript">print_state("sts");</script>
+          <hr>
+          
+          <label for="fname">To:</label> 
+          <select onchange="print_city('state1', this.selectedIndex);" id="sts1" name ="state" method="GET" class="form-control" required></select>
+          <select id ="state1" name="city" class="form-control" method="GET" required></select>
+          <script language="javascript">print_state("sts1");</script>
+          <!--<input type="text"  style=" text-align: center; font-size: 30px; height: 50px ; width: 400px; float: right;  margin-right: 2%; margin-bottom: 5px;" placeholder="To" id="fname" name="to">-->
           <hr style="margin-top: 2px;     ; border: 1px solid black;">
           <div class="hl">
-                <hr>
+                
 
           </div>
       </span>
